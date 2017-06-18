@@ -25,6 +25,7 @@ function initdict {
 	watch "gitignore"
 	watch "lib"
 	watch "dll"
+	watch "md"
 }
 
 #Check file's extension

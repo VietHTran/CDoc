@@ -20,16 +20,13 @@ for file in $H_FILES; do
         if [ -z "$line" ] || [ "$line" = *[[:space:]]* ]; then
             continue
         fi
+        RE=$INCLUDE_RE
         case "$1" in
             --def)
-                #get lines with define macro
-                if [[ "$line" == $DEFINE_RE ]]; then
-                    echo "$file:$line_num $line"
-                fi
-                ;;
+                RE=$DEFINE_RE
+                ;&
             --map)
-                #get lines with include macro
-                if [[ "$line" == $INCLUDE_RE ]]; then
+                if [[ "$line" == $RE ]]; then
                     echo "$file:$line_num $line"
                 fi
                 ;;
